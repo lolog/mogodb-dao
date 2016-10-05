@@ -40,10 +40,12 @@ mongo_prefix=go_
 ## 4. 注解
 ### 4.1 Collection(文档注解):
 name：注解名
+
 ### 4.2 EKey(更新对象注解):
 * value:更新对象键
 * index:更新排序,1 --> 递增,-1 --> 递减
 * priority:索引的级别
+
 ### 4.3 Index(索引注解):
 * key:是否是索引
 * unique:时候是唯一字段
@@ -53,4 +55,5 @@ name：注解名
 * omission:omission
 * background:后台方式创建索引
 * sparse:文档中不存在的字段数据不启用索引。设置为true,索引字段中不会查询出不包含对应字段的文档
+
 ## 5.
