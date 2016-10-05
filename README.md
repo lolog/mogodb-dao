@@ -71,7 +71,7 @@ name：注解名
 	
 	/**
 	 * @Title         filter
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   filer condition
 	 * @param filter  operate conditions,for example: {"title": {"$eq", 1}, {"name":"lolog"}}
 	 * @return        MongoDao
@@ -123,7 +123,7 @@ name：注解名
 	
 	/**
 	 * @Title          database
-	 * @author         00013052
+	 * @author         lolog
 	 * @description    set mongodb database
 	 * @param database connected database
 	 * @return         MongoDao
@@ -134,7 +134,7 @@ name：注解名
 	
 	/**
 	 * @Title               data
-	 * @author              00013052
+	 * @author              lolog
 	 * @description         set data of operation
 	 * @param t             single data
 	 * @return              MongoDao
@@ -145,7 +145,7 @@ name：注解名
 	
 	/**
 	 * @Title               data
-	 * @author              00013052
+	 * @author              lolog
 	 * @description         set data of operation
 	 * @param t             single data
 	 * @return              MongoDao
@@ -156,7 +156,7 @@ name：注解名
 	
 	/**
 	 * @Title                data
-	 * @author               00013052
+	 * @author               lolog
 	 * @description          set data of operation
 	 * @param ts             mutil data
 	 * @return               MongoDao
@@ -167,7 +167,7 @@ name：注解名
 	
 	/**
 	 * @Title                collection
-	 * @author               00013052
+	 * @author               lolog
 	 * @description          set collection name
 	 * @param collectionName collection name
 	 * @return               MongoDao
@@ -178,7 +178,7 @@ name：注解名
 	
 	/**
 	 * @Title         exclude
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   exclude field
 	 * @param exclude exclude field,for example:"name,title"
 	 * @return        MongoDao
@@ -188,7 +188,7 @@ name：注解名
 	
 	/**
 	 * @Title              exclude
-	 * @author             00013052
+	 * @author             lolog
 	 * @description        exclude field
 	 * @param excludeArray exclude field,for example:{"name","title"}
 	 * @return             MongoDao
@@ -198,7 +198,7 @@ name：注解名
 	
 	/**
 	 * @Title         exclude
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   include field
 	 * @param include include field,for example:"name,title"
 	 * @return        MongoDao
@@ -209,7 +209,7 @@ name：注解名
 	
 	/**
 	 * @Title              exclude
-	 * @author             00013052
+	 * @author             lolog
 	 * @description        include field
 	 * @param includeArray include field,for example:{"name","title"}
 	 * @return             MongoDao
@@ -219,7 +219,7 @@ name：注解名
 	
 	/**
 	 * @Title              distinct
-	 * @author             00013052
+	 * @author             lolog
 	 * @description        distinct query data
 	 * @param fieldName    field name of distinct
 	 * @param targetClass  class of return
@@ -239,7 +239,7 @@ name：注解名
 	
 	/**
 	 * @Title         insert
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   save datas
 	 * @return        get true if successfully save
 	 * @throws        exception
@@ -249,7 +249,7 @@ name：注解名
 	
 	/**
 	 * @Title         insert
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   save datas
 	 * @param t       single data of saving
 	 * @return        get true if successfully save
@@ -260,7 +260,7 @@ name：注解名
 	
 	/**
 	 * @Title         insert
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   save datas
 	 * @param ts      more datas of saving
 	 * @return        get true if successfully save
@@ -271,7 +271,7 @@ name：注解名
 	
 	/**
 	 * @Title         update
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   update datas (T type) for MongoDB
 	 * @param notMuti update single data if notMuti is true, other update many
 	 * @return        get true if successfully update, get false if t equals null, update all
@@ -283,7 +283,7 @@ name：注解名
 	
 	/**
 	 * @Title         update
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   update datas (T type) for MongoDB
 	 * @param data    map data
 	 * @param notMuti update single data if notMuti is true, other update many
@@ -296,7 +296,7 @@ name：注解名
 	
 	/**
 	 * @Title         update
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   update datas (T type) for MongoDB
 	 * @param t       single data of saving
 	 * @param notMuti update single data if notMuti is true, other update many
@@ -309,7 +309,7 @@ name：注解名
 	
 	/**
 	 * @Title         update
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   update datas (T type) for MongoDB
 	 * @param ts      more data of saving
 	 * @param notMuti update single data if notMuti is true, other update many
@@ -322,7 +322,7 @@ name：注解名
 	
 	/**
 	 * @Title                select
-	 * @author               00013052
+	 * @author               lolog
 	 * @description          select datas
 	 * @param database       connected database pool before inserting data
 	 * @param filter         select condition, for example: {"title": {"$eq", 1}, {"name":"lolog"}}
@@ -344,7 +344,7 @@ name：注解名
 	
 	/**
 	 * @Title                select
-	 * @author               00013052
+	 * @author               lolog
 	 * @description          select datas
 	 * @param database       connected database pool before inserting data
 	 * @param filter         select condition, for example: {"title": {"$eq", 1}, {"name":"lolog"}}
@@ -356,7 +356,7 @@ name：注解名
 	
 	/**
 	 * @Title                delete
-	 * @author               00013052
+	 * @author               lolog
 	 * @description          select datas
 	 * @param database       connected database pool before inserting data
 	 * @param filter         delete condition
@@ -369,7 +369,7 @@ name：注解名
 	
 	/**
 	 * @Title         count
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   query count of object
 	 * @return        return datas count for filter condition
 	 * @throws        exception
@@ -420,7 +420,7 @@ name：注解名
 	
 	/**
 	 * @Title         getCollectionName
-	 * @author        00013052
+	 * @author        lolog
 	 * @description   get database collection name
 	 * @return        return list collection name
 	 * @date          2016.08.15 15:01:11
