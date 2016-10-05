@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    
+    <!-- MongoDB的连接池 -->
+	<bean id="mongoPool" class="net.oicp.wego.dao.pool.impl.MongoPoolImpl">
+		<property name="host" value="#{conf.mongo_host}" />
+		<property name="port" value="#{conf.mongo_port}" />
+		<property name="userName" value="#{conf.mongo_user}" />
+		<property name="password" value="#{conf.mongo_pwd}" />
+		<property name="dbName"   value="#{conf.mongo_db}" />
+		<property name="connectionsPerHost" value="10" />
+		<property name="threadsAllowedToBlockForConnectionMultiplier" value="15" />
+	</bean>
+</beans>
