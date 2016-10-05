@@ -427,3 +427,222 @@ name：注解名
 	 */
 	public List<String> getCollectionNames ();
 ```
+
+## 6.Demo
+```Java
+public class Keys {
+	private String key;
+	private Integer order;
+	private String name;
+	private String ns;
+	private Boolean background;
+	private Boolean sparse;
+	
+	public Keys() {
+	}
+	
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+	public Integer getOrder() {
+		return order;
+	}
+	public void setOrder(Integer order) {
+		this.order = order;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNs() {
+		return ns;
+	}
+	public void setNs(String ns) {
+		this.ns = ns;
+	}
+	public Boolean getBackground() {
+		return background;
+	}
+	public void setBackground(Boolean background) {
+		this.background = background;
+	}
+	public Boolean getSparse() {
+		return sparse;
+	}
+	public void setSparse(Boolean sparse) {
+		this.sparse = sparse;
+	}
+	
+	@Override
+	public String toString() {
+		return "Keys [key=" + key + ", order=" + order + ", name=" + name + ", ns=" + ns + ", background=" + background
+				+ ", sparse=" + sparse + "]";
+	}
+}
+
+public class Base {
+	@Index(id=true)
+	private String id;
+	// manager id of add 
+	private String addy_id;
+	// manager name of add
+	private String addy_name;
+	// add time
+	private Date add_time;
+	// edit manager
+	@EKey("$push")
+	List<Editor> editors;
+	// delete label
+	@Index(key=false)
+	private Boolean is_del;
+	// forbidden label
+	@Index(key=false)
+	private Boolean is_forbidden;
+	
+	public Base() {
+		
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getAddy_id() {
+		return addy_id;
+	}
+	public void setAddy_id(String addy_id) {
+		this.addy_id = addy_id;
+	}
+	public String getAddy_name() {
+		return addy_name;
+	}
+	public void setAddy_name(String addy_name) {
+		this.addy_name = addy_name;
+	}
+	public Date getAdd_time() {
+		return add_time;
+	}
+	public void setAdd_time(Date add_time) {
+		this.add_time = add_time;
+	}
+	public List<Editor> getEditors() {
+		return editors;
+	}
+	public void setEditors(List<Editor> editors) {
+		this.editors = editors;
+	}
+	public Boolean getIs_del() {
+		return is_del;
+	}
+	public void setIs_del(Boolean is_del) {
+		this.is_del = is_del;
+	}
+	public Boolean getIs_forbidden() {
+		return is_forbidden;
+	}
+	public void setIs_forbidden(Boolean is_forbidden) {
+		this.is_forbidden = is_forbidden;
+	}
+	
+	@Override
+	public String toString() {
+		return "Base [id=" + id + ", addy_id=" + addy_id + ", addy_name=" + addy_name + ", add_time=" + add_time + ", editors=" + editors + ", is_del=" + is_del + ", is_forbidden=" + is_forbidden + "]";
+	}
+}
+
+
+@EKey("$set")
+public class Currency extends Base {
+	@Index(unique = true)
+	private String currency_id;
+	@Index(unique = true)
+	private String name;
+	private Double rate;
+
+	public Currency() {
+	}
+
+	public String getCurrency_id() {
+		return currency_id;
+	}
+	public void setCurrency_id(String currency_id) {
+		this.currency_id = currency_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Double getRate() {
+		return rate;
+	}
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
+
+	@Override
+	public String toString() {
+		return "Currency [currency_id=" + currency_id + ", name=" + name + ", rate=" + rate + ", Base [id=" + getId()+ ", addy_id=" + getAddy_id() + ", add_time=" + getAdd_time() + ", editors=" + getEditors() + ", is_del=" + getIs_del() + ", is_forbidden=" + getIs_forbidden() + "]]";
+	}
+}
+
+public interface CurrencyDao extends MongoDao<Currency> {
+
+}
+
+@Service("currencyDao")
+public class CurrencyDaoImpl extends MongoDaoImpl<Currency> implements CurrencyDao {
+
+}
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:config/app.xml")
+public class CurrencyDaoTest {
+	@Resource
+	private CurrencyDao currencyDao;
+	
+	@Test
+	public void insertTest () {
+		Currency currency = new Currency();
+		
+		currency.setName("港币");
+		currency.setRate(.857);
+		currency.setCurrency_id("current_id0");
+		
+		Editor editor = new Editor();
+		editor.setEdit_id("xxx");
+		editor.setEdit_name("lolog");
+		editor.setEdit_time(new Date());
+		
+		List<Editor> editors = new ArrayList<Editor>();
+		editors.add(editor);
+		
+		currency.setEditors(editors);
+		
+		currencyDao.insert(currency);
+	}
+	
+	@Test
+	public void queryTest () {
+		Map<String, Object> filter = new HashMap<String, Object>();
+		// filter.put("name", "人民币");
+		filter.put("editors.$.edit_name", new HashMap<>().put("$eq", "lolog"));
+		System.out.println(currencyDao.filter(filter).query());;
+	}
+	
+	@Test
+	public void queryIndexTest () {
+		System.out.println(currencyDao.queryIndex());;
+	}
+}
+
+
+```
