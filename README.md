@@ -5,6 +5,7 @@ To achieve object-oriented development, database objects to support the base cla
 ## 2. Environment
 * MongoDB 3.0+
 * JDK 6.0+
+
 ## 3. Configure
 ###3.1 MongoDB server configure
 ```xml
