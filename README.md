@@ -39,15 +39,15 @@ mongo_prefix=go_
 </mvc:interceptors>
 ```
 ## 4. Annotation
-### 4.1 Collection(Docuent annotation):
+### 4.1 Collection(Document annotation):
 name：annotation name
 
-### 4.2 EKey(Update annotation):
+### 4.2 EKey(Update Annotation):
 * value   : update key,for each,"$set","$push",etc
 * index   : order, 1 --> asc, -1 --> desc
 * priority: level
 
-### 4.3 Index(key annotation):
+### 4.3 Index(key Annotation):
 * key       : whether key
 * unique    : whether field is unique
 * order     : order,1 --> asc,-1 --> desc
